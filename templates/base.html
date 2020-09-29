@@ -13,6 +13,25 @@
     </title>
 
     {% block script %}
+
+
+    <script>
+        function printTime() {
+
+              var clock = document.getElementById("clock");
+
+              var now = new Date();
+
+              var nowTime = now.getFullYear() + "년" + (now.getMonth()+1) + "월" + now.getDate() + "일" + now.getHours() + "시" + now.getMinutes() + "분" + now.getSeconds() + "초";
+
+              clock.innerHTML = nowTime;           // 현재시간을 출력
+
+              setTimeout("printTime()",1000);         }
+
+window.onload = function() {
+              printTime();}
+    </script>
+
     {% endblock %}
 
     {% block style %}
@@ -23,6 +42,10 @@
 <!--navebar-->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/">Django Shop</a>
+        <div class="row">
+<div class="col-10"></div><h1>MAIN PAGE</h1>
+<div class="col-6"> <span id="clock"></span><br/></div>
+</div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -58,7 +81,8 @@
   </div>
 </nav>
 <div class="container">
-    {% block content %}{% endblock %}
+    {% block content %}
+    {% endblock %}
 </div>
 
 

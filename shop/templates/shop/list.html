@@ -1,31 +1,12 @@
 
 {% extends 'base.html' %}
-{% block content %}>
-<div class="row">
-<div class="col"></div><h1>MAIN PAGE</h1>
-<div class="col-6"> <span id="clock"></span> 입니다<br/></div>
-</div>
+
+{% block content %}
+
 
 {% block title%}
 {% endblock %}
-{% block script %}
-    <script>
-        function printTime() {
 
-              var clock = document.getElementById("clock");
-
-              var now = new Date();
-
-              var nowTime = now.getFullYear() + "년" + (now.getMonth()+1) + "월" + now.getDate() + "일" + now.getHours() + "시" + now.getMinutes() + "분" + now.getSeconds() + "초";
-
-              clock.innerHTML = nowTime;           // 현재시간을 출력
-
-              setTimeout("printTime()",1000);         }
-
-window.onload = function() {
-              printTime();}
-    </script>
-{% endblock %}
 
   <div class="row">
         <div class="col-2">
