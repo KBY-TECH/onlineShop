@@ -4,8 +4,11 @@ from .models import *
 # Create your views here.
 # def main(request):
 #     return render(request, 'shop/list.html');
-
+from cart.forms import *
 def product_in_category(request,category_slug=None):
+    print("session key",request.session.session_key)
+    request.session['test']='hahaha'
+
     current_category=None
     categories=Category.objects.all()
     products=Product.objects.filter(available_display=True)
@@ -19,4 +22,6 @@ def product_in_category(request,category_slug=None):
 
 def product_detail(request,id,product_slug=None):
     product=get_object_or_404(Product,id=id,slug=product_slug)
-    return render(request,'shop/detail.html',{'product':product})
+
+    add_to_cart=ProductForm(initial={'quantity':1})
+    return render(request,'shop/detail.html',{'product':product,'add_to_cart':add_to_cart})
