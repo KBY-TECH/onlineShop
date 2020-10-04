@@ -5,6 +5,7 @@ from django.views.decorators.http import require_POST
 from shop.models import Product
 from .forms import *
 from .cart import Cart
+from coupon.forms import AddCouponForm
 
 #장바구니 담기 기능
 @require_POST
@@ -28,9 +29,10 @@ def remove(request,product_id):
 
 def detail(request):
     cart = Cart(request)  # sessiong key (cookie)
+    add_coupon = AddCouponForm()
     for product in cart:
         product['quantity_form']=ProductForm(initial={'quantity':product['quantity'],'is_update':True})
 
-    return render(request,'cart/detail.html',{'cart':cart})
+    return render(request,'cart/detail.html',{'cart':cart,'add_coupon': add_coupon})
 
 

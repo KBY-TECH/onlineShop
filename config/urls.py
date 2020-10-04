@@ -20,5 +20,6 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path('', include('shop.urls')),
     path('cart', include('cart.urls')),
+    path('coupon/', include('coupon.urls')),
 
 ]
