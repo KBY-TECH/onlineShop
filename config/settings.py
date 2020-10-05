@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.naver',
     'coupon',
+    'order',
 
 ]
 
@@ -163,3 +164,6 @@ DEFAULT_FILE_STORAGE = 'config.s3media.MediaStorage'
 
 # cart session
 CART_ID="cart_item"
+
+IAMPORT_KEY=iamPortKey
+IAMPORT_SECRET=iamPortSecret
