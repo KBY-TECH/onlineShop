@@ -11,7 +11,7 @@ from coupon.forms import AddCouponForm
 @require_POST
 def add(request, product_id):
     cart = Cart(request)
-    print("CART is ...-> ",cart)
+    print("CART is ...-> ",cart.session)
     product = get_object_or_404(Product, id=product_id)
 
     form = ProductForm(request.POST)

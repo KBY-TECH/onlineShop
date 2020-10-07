@@ -1,13 +1,10 @@
 from django.shortcuts import render,get_object_or_404
 
 from .models import *
-# Create your views here.
-# def main(request):
-#     return render(request, 'shop/list.html');
 from cart.forms import *
+
 def product_in_category(request,category_slug=None):
     print("session key",request.session.session_key)
-    request.session['test']='hahaha'
 
     current_category=None
     categories=Category.objects.all()

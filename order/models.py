@@ -13,7 +13,7 @@ from shop.models import Product
 
 class Order(models.Model):
     first_name = models.CharField(max_length=50)
-    c = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
     email = models.EmailField()
     address = models.CharField(max_length=250)
     postal_code = models.CharField(max_length=20)
@@ -95,7 +95,6 @@ class OrderTransaction(models.Model):
     transaction_status = models.CharField(max_length=220, null=True, blank=True)
     type = models.CharField(max_length=120, blank=True)
     created = models.DateTimeField(auto_now_add=True)
-
     objects = OrderTransactionManager()
 
     def __str__(self):

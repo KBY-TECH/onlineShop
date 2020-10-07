@@ -75,6 +75,6 @@
 
     <p class="text-right">
         <a href="{% url 'shop:product_all' %}" class="btn btn-secondary">Continue shopping</a>
-        <a href="{{ cart.clean }}" class="btn btn-secondary"> 장바구니 비우기 </a>
+        <a href="{% url 'order:order_create' %}" class="btn btn-secondary"> checkOut </a>
     </p>
 {% endblock %}

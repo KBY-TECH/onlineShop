@@ -15,22 +15,6 @@
     {% block script %}
 
 
-    <script>
-        function printTime() {
-
-              var clock = document.getElementById("clock");
-
-              var now = new Date();
-
-              var nowTime = now.getFullYear() + "년" + (now.getMonth()+1) + "월" + now.getDate() + "일" + now.getHours() + "시" + now.getMinutes() + "분" + now.getSeconds() + "초";
-
-              clock.innerHTML = nowTime;           // 현재시간을 출력
-
-              setTimeout("printTime()",1000);         }
-
-window.onload = function() {
-              printTime();}
-    </script>
 
     {% endblock %}
 
@@ -66,11 +50,11 @@ window.onload = function() {
         &nbsp;&nbsp;
         <li class="nav-item">
             <a class="nav-link btn btn-outline-success" href="{% url 'cart:detail' %}">Cart
-                {% if cart|length > 0 %} <!--ContextProcessor need! -->
+             <!--   {% if cart|length > 0 %} &lt;!&ndash;ContextProcessor need! &ndash;&gt;
                     ${{ cart.get_product_total }} with {{cart|length}} items
                 {% else %}
                     : Empty
-                {% endif %}
+                {% endif %} -->
             </a>
         </li>
     </ul>

@@ -7,7 +7,8 @@ from django.urls import reverse
 class Category(models.Model):
     name=models.CharField(max_length=200,db_index=True)
     meta_description=models.TextField(blank=True)
-    slug=models.SlugField(max_length=200,db_index=True,unique=True,allow_unicode=True)
+    slug=models.SlugField(max_length=200,db_index=True,unique=True,
+                          allow_unicode=True)
 
     class Meta:
         ordering=['name']
