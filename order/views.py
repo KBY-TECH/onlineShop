@@ -6,8 +6,10 @@ from .forms import *
 # Create your views here.
 def orderCreate(request):
     cart=Cart(request)
-    if request.method=='post':
+    print(request.method)
+    if request.method == 'POST':
         form=OrderCreateForm(request.POST)
+        print(form)
         if form.is_valid():
             order=form.save()
             if cart.coupon:
@@ -21,9 +23,9 @@ def orderCreate(request):
             return render(request,'order/created.html', {'order': order})
     else:
         form=OrderCreateForm()
+        print("else 구문...")
     return render(request,'order/create.html',{'cart':cart,
-
-                                               'form':'form'})
+                                               'form':form})
 #JS 동작하지 않는 환경에서도 주문은 가능해야 한다.
 # 그래서 JS가 안되는 경우 모두 백단에서 처리하여야 한다.
 

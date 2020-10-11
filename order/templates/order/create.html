@@ -13,7 +13,7 @@ order_validation_url = "{% url 'order:order_validation' %}";
 order_complete_url = "{% url 'order:order_complete' %}";
 </script>
 
-<script src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js" type="text/javascript"></script>
+<script src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js" type="text/javascript"></script>
 
 {% load static %}
 <script src="{% static 'js/checkout.js' %}" type="text/javascript"></script>
@@ -33,7 +33,7 @@ order_complete_url = "{% url 'order:order_complete' %}";
         {% endfor %}
         {% if cart.coupon %}
             <li class="list-group-item">
-                "{{ cart.coupon.code }}" ({{ cart.coupon.amount }} off)
+                "{{ cart.coupon.code }}" (${{ cart.coupon.amount }} off)
                 <span>- ${{ cart.get_total_discount|floatformat:"2" }}</span>
             </li>
         {% endif %}
@@ -41,7 +41,7 @@ order_complete_url = "{% url 'order:order_complete' %}";
         <div class="alert alert-success" role="alert">Total : {{cart.get_total_price|floatformat:"2"}}</div>
 
         <!-- form에 class 추가 -->
-        <form action="" method="post" class="order-form">
+        <form action="" method="POST" class="order-form">
             {{form.as_p}}
             {% csrf_token %}
             <!-- hidden field 추가-->

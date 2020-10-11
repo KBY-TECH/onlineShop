@@ -167,3 +167,7 @@ CART_ID="cart_item"
 
 IAMPORT_KEY=iamPortKey
 IAMPORT_SECRET=iamPortSecret
+
+STATICFILES_DIRS=[
+    os.path.join(BASE_DIR,'static')
+]
