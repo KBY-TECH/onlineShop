@@ -19,7 +19,7 @@ $(function () {
             IMP.request_pay({
                 merchant_uid: merchant_id,
                 name: 'django-shop product',
-                buyer_name:$('input[name="first_name"]').val()+" "+$('input[name="last_name"]').val(), // , -> ;
+                buyer_name:$('input[name="first_name"]').val()+" "+$('input[name="last_name"]').val(),
                 buyer_email:$('input[name="email"]').val(),
                 amount: amount
             }, function (rsp) {
